@@ -1,9 +1,12 @@
 FROM  ubuntu:18.04
 
 ARG DEBIAN_FRONTEND=noninteractive
+# 可以让 apt-get 等工具在安装软件包时跳过交互式提示（如选择语言、时区等）
+
 ENV TZ=Asia/Shanghai
 
 SHELL ["/bin/bash", "-c"]
+# 指定了 Dockerfile 中后续的 RUN 指令用/bin/bash执行, 而不是默认的/bin/sh
 
 RUN apt-get clean && \
     apt-get autoclean

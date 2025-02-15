@@ -13,7 +13,8 @@ PKG_NAME="CMake-${VERSION}.tar.gz"
 
 tar xzf "${PKG_NAME}"
 pushd CMake-${VERSION}
-./configure --prefix=/usr/local/
+./configure --prefix=/usr/local/ 
+#这里面configure也是一个脚本, 执行了这个脚本创建了一个进程, 再exec bootsrap脚本, 并传递参数.
 make -j${THREAD_NUM}
 make install
 popd
